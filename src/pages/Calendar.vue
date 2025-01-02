@@ -39,13 +39,15 @@
       <h3>{{ selectedDateText }}</h3>
       <div class="add-todo">
         <input v-model="newTodo" placeholder="새 일정 추가" />
+        <input v-model="newTodoTime" type="time" placeholder="시간 선택" class="time-input" />
         <button @click="addTodo">추가</button>
       </div>
       <div v-if="todos[selectedDateText] && todos[selectedDateText].length">
         <ul>
           <li v-for="(todo, index) in todos[selectedDateText]" :key="index">
-            {{ todo }}
-            <button @click="removeTodo(selectedDateText, index)">삭제</button>
+            <span class="todo-time">{{ todo.time }}</span>
+            <span class="todo-task">{{ todo.task }}</span>
+            <button class="delete-button" @click="removeTodo(selectedDateText, index)">삭제</button>
           </li>
         </ul>
       </div>
@@ -65,6 +67,7 @@ export default {
       selectedDate: null,
       todos: {}, // { 날짜: ["일정1", "일정2"] }
       newTodo: '', // 새로운 일정 입력값
+      newTodoTime: '', // 새로운 일정 시간
     }
   },
   computed: {
@@ -146,13 +149,15 @@ export default {
       }
     },
     addTodo() {
-      if (!this.newTodo.trim()) return
+      if (!this.newTodo.trim() || !this.newTodoTime.trim()) return
       const dateKey = this.selectedDateText
+
       if (!this.todos[dateKey]) {
         this.todos[dateKey] = []
       }
-      this.todos[dateKey].push(this.newTodo.trim())
+      this.todos[dateKey].push({ time: this.newTodoTime, task: this.newTodo.trim() })
       this.newTodo = ''
+      this.newTodoTime = ''
     },
     removeTodo(dateKey, index) {
       if (this.todos[dateKey]) {
@@ -276,17 +281,25 @@ export default {
 }
 
 .todo-container li {
+  background-color: white;
+  padding: 10px;
   display: flex;
-  justify-content: space-between;
-  margin-bottom: 8px;
+  justify-content: start;
+  align-items: center;
+  border-radius: 3px;
 }
 .add-todo input {
-  width: calc(100% - 60px);
+  width: 665px;
   margin-right: 10px;
   margin-bottom: 20px;
   border-radius: 3px;
   border-width: 1px;
   padding: 5px;
+}
+
+.add-todo .time-input {
+  width: 150px;
+  margin-right: 8px;
 }
 
 .add-todo button {
@@ -297,5 +310,25 @@ export default {
   background-color: white;
   cursor: pointer;
   padding: 5px;
+}
+
+.delete-button {
+  width: 50px;
+  border-radius: 5px;
+  border-color: #9ed3ff;
+  border-style: solid;
+  background-color: white;
+  cursor: pointer;
+  padding: 5px;
+  margin-left: 500px;
+}
+.todo-time {
+  font-weight: bold;
+  color: #555;
+  margin-right: 10px;
+}
+
+.todo-task {
+  color: #333;
 }
 </style>
