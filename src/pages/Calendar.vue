@@ -297,18 +297,25 @@ export default {
   align-items: center;
   border-radius: 3px;
 }
+.add-todo {
+  display: flex; /* Flexbox를 사용해 아이템을 가로로 정렬 */
+  align-items: center; /* 세로 중앙 정렬 */
+  justify-items: center;
+  margin-bottom: 15px;
+  gap: 2px; /* 아이템 간의 간격 설정 */
+}
 .add-todo input {
-  width: 665px;
+  width: 400px;
   margin-right: 10px;
-  margin-bottom: 20px;
   border-radius: 3px;
   border-width: 1px;
   padding: 5px;
 }
 
-.add-todo .time-input {
-  width: 150px;
+.time-input {
+  width: 50px;
   margin-right: 8px;
+  margin-left: 10px;
 }
 
 .add-todo button {
