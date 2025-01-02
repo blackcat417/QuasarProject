@@ -36,7 +36,7 @@
 
     <!-- To-Do 영역 -->
     <div class="todo-container">
-      <h3>{{ selectedDateText }}</h3>
+      <h2>{{ selectedDateText }}</h2>
       <div class="add-todo">
         <input v-model="newTodo" placeholder="새 일정 추가" />
         <input v-model="newTodoTime" type="time" placeholder="시간 선택" class="time-input" />
@@ -251,6 +251,8 @@ export default {
 
 .calendar-date.is-other-month {
   color: #b0bec5;
+  pointer-events: none;
+  opacity: 0.5;
 }
 .event-dots {
   display: flex;
@@ -275,7 +277,9 @@ export default {
   margin-bottom: 5px;
 }
 
-.todo-container h3 {
+.todo-container h2 {
+  font-size: 40px;
+  font-weight: 200;
   margin-bottom: 20px;
   margin-top: 0px;
   text-align: center;
