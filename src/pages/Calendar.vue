@@ -156,6 +156,10 @@ export default {
         this.todos[dateKey] = []
       }
       this.todos[dateKey].push({ time: this.newTodoTime, task: this.newTodo.trim() })
+      // 시간 순서로 정렬
+      this.todos[dateKey].sort((a, b) => {
+        return a.time.localeCompare(b.time) // 시간 문자열 비교
+      })
       this.newTodo = ''
       this.newTodoTime = ''
     },
