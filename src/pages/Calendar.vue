@@ -44,10 +44,10 @@
       </div>
       <div v-if="todos[selectedDateText] && todos[selectedDateText].length">
         <ul>
-          <li v-for="(todo, index) in todos[selectedDateText]" :key="index">
+          <li v-for="(todo, index) in todos[selectedDateText]" :key="index" class="todo-item">
             <span class="todo-time">{{ todo.time }}</span>
             <span class="todo-task">{{ todo.task }}</span>
-            <button class="delete-button" @click="removeTodo(selectedDateText, index)">삭제</button>
+            <button class="remove-btn" @click="removeTodo(selectedDateText, index)">삭제</button>
           </li>
         </ul>
       </div>
@@ -268,6 +268,7 @@ export default {
   border: 1px solid #bcd8ff;
   border-radius: 8px;
   background: #e7f1ff;
+  margin-bottom: 5px;
 }
 
 .todo-container h3 {
@@ -312,15 +313,27 @@ export default {
   padding: 5px;
 }
 
-.delete-button {
-  width: 50px;
-  border-radius: 5px;
-  border-color: #9ed3ff;
-  border-style: solid;
-  background-color: white;
+.remove-btn {
+  position: absolute; /* 절대 위치 설정 */
+  right: 10px; /* 부모의 오른쪽에서 10px 떨어지게 */
+  top: 50%; /* 부모의 세로 중앙 */
+  transform: translateY(-50%); /* 세로 중앙 정렬 */
+  background-color: #ff6b6b;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
   cursor: pointer;
-  padding: 5px;
-  margin-left: 500px;
+  font-size: 12px;
+}
+
+.remove-btn:hover {
+  background-color: #ff5252;
+}
+.todo-item {
+  position: relative;
+  align-items: center; /* 수직 중앙 정렬 */
+  margin-bottom: 10px;
 }
 .todo-time {
   font-weight: bold;
