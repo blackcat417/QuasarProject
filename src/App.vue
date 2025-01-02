@@ -2,7 +2,6 @@
   <q-layout view="hHh lpR fFf">
     <q-header elevated>
       <q-toolbar>
-        <q-btn flat round icon="menu" />
         <q-toolbar-title>일정 관리 Calendar</q-toolbar-title>
       </q-toolbar>
     </q-header>
