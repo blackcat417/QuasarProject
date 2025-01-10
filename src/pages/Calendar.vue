@@ -274,7 +274,6 @@ export default {
   flex: 1; /* 남은 공간을 사용 */
   min-width: 300px; /* 최소 너비 설정 */
   max-width: 70%; /* 최대 너비 설정 */
-  height: 80vh;
   border: 1px solid #bcd8ff;
   border-radius: 8px;
   background: #e7f1ff;
