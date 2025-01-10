@@ -86,6 +86,9 @@ export default {
 </script>
 
 <style scoped>
+.q-pa-md {
+  min-height: max-content;
+}
 .mypage-title {
   text-align: center;
   font-size: 30px;
@@ -122,9 +125,10 @@ export default {
 .settings-card,
 .activity-card {
   background-color: white;
-  padding: 10px;
+  padding: 5px;
   border-radius: 8px;
   margin-bottom: 0px;
+  margin-top: -10px;
 }
 h3 {
   font-size: 20px;
