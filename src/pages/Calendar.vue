@@ -60,6 +60,7 @@
 
 <script>
 export default {
+  name: 'CalendarPage',
   data() {
     return {
       days: ['일', '월', '화', '수', '목', '금', '토'],
@@ -189,7 +190,9 @@ export default {
 }
 
 .calendar {
-  width: 900px;
+  flex: 1; /* 남은 공간을 사용 */
+  min-width: 200px; /* 최소 너비 설정 */
+  max-width: 50%; /* 최대 너비 설정 */
   height: 80vh;
   border: 1px solid #d8d8d8;
   background: #fff;
@@ -268,9 +271,10 @@ export default {
   margin: 0 2px;
 }
 .todo-container {
-  flex: 1;
+  flex: 1; /* 남은 공간을 사용 */
+  min-width: 300px; /* 최소 너비 설정 */
+  max-width: 70%; /* 최대 너비 설정 */
   height: 80vh;
-  padding: 30px;
   border: 1px solid #bcd8ff;
   border-radius: 8px;
   background: #e7f1ff;
