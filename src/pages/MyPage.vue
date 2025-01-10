@@ -11,7 +11,13 @@
         <h2>{{ userName }}</h2>
         <p>Email: {{ userEmail }}</p>
         <p>가입일: {{ signupDate }}</p>
-        <q-btn label="프로필 수정" flat color="primary" @click="editProfile" />
+        <q-btn
+          class="profile-edit-button"
+          label="프로필 수정"
+          flat
+          color="primary"
+          @click="editProfile"
+        />
       </div>
     </div>
 
@@ -84,12 +90,15 @@ export default {
   text-align: center;
   font-size: 30px;
   margin-bottom: 20px;
+  font-weight: bold;
 }
 
 .profile-card {
+  height: 300px;
   display: flex;
   align-items: center;
-  gap: 20px;
+  justify-items: center;
+  gap: 10px;
   background-color: white;
   padding: 20px;
   border-radius: 8px;
@@ -104,11 +113,20 @@ export default {
   font-size: 15px;
 }
 
+.profile-edit-button {
+  background-color: rgba(170, 170, 170, 0.418);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
 .settings-card,
 .activity-card {
   background-color: white;
-  padding: 16px;
+  padding: 10px;
   border-radius: 8px;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
+}
+h3 {
+  font-size: 20px;
 }
 </style>
